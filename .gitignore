@@ -1,4 +1,3 @@
-assets/*
 _ss_environment.php
 tools/phing-metadata
 silverstripe-cache
@@ -8,6 +7,7 @@ silverstripe-cache
 .idea
 .DS_Store
 
+assets/*
 cms/
 framework/
 vendor/
@@ -15,6 +15,7 @@ vendor/
 behat.yml
 build.xml
 composer.json
+composer.lock
 CONTRIBUTING.md
 index.php
 install-frameworkmissing.html
