@@ -7,11 +7,18 @@ silverstripe-cache
 .settings
 .idea
 .DS_Store
-vendor/
-composer.lock
 
-*
-!.gitignore
-!themes
-!mysite
-!static
+cms/
+framework/
+vendor/
+.htaccess
+behat.yml
+build.xml
+composer.json
+CONTRIBUTING.md
+index.php
+install-frameworkmissing.html
+Makefile
+phpunit.*
+README.md
+web.config
