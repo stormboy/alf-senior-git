@@ -1,10 +1,9 @@
 <?php
 	/**
-	 * GIT DEPLOYMENT SCRIPT
+	 * Site Deployment Script
 	 *
-	 * Used for automatically deploying websites via github or bitbucket, more deets here:
+	 * Will pull latest version of the site from github and rsync to testing server
 	 *
-	 *		https://gist.github.com/1809044
 	 */
 
 	function ip_in_network($ip, $net_addr, $net_mask){ 
