@@ -7,6 +7,29 @@
 	 *		https://gist.github.com/1809044
 	 */
 
+	function ip_in_network($ip, $net_addr, $net_mask){ 
+	    if($net_mask <= 0){ return false; } 
+	        $ip_binary_string = sprintf("%032b",ip2long($ip)); 
+	        $net_binary_string = sprintf("%032b",ip2long($net_addr)); 
+	        return (substr_compare($ip_binary_string,$net_binary_string,0,$net_mask) === 0); 
+	} 
+
+	// 207.97.227.253/32, 50.57.128.197/32, 108.171.174.178/32, 50.57.231.61/32, 204.232.175.64/27, 192.30.252.0/22
+	$ip = $_SERVER['REMOTE_ADDR'];
+	$ok = ( ip_in_network($ip, "207.97.227.253",32) ||
+		 ip_in_network($ip, "50.57.128.197",32) ||
+		 ip_in_network($ip, "108.171.174.178",32) ||
+		 ip_in_network($ip, "50.57.231.61",32) ||
+		 ip_in_network($ip, "204.232.175.64",27) ||
+		 ip_in_network($ip, "192.30.252.0",22)  ||
+		 ip_in_network($ip, "192.168.236.0",24)  ||		# local network
+		 ip_in_network($ip, "127.0.0.1",32) 			# localhost
+		);
+	if ($ok == false) {
+		echo "not cool";
+		return;
+	}
+
 	// The commands
 	$commands = array(
 		'echo $PWD',

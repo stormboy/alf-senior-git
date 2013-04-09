@@ -11,6 +11,7 @@ assets/*
 cms/
 framework/
 vendor/
+_config.php
 .htaccess
 behat.yml
 build.xml
