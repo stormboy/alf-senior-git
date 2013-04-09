@@ -30,11 +30,14 @@
 		return;
 	}
 
+	// make sure macports is in the shell path
+	$path = getenv("PATH");
+	putenv("PATH=/opt/local/bin:$path");
+	
 	// The commands
 	$commands = array(
 		'echo $PWD',
 		'whoami',
-		#'ssh -vv smallstu@smallstudio.com.au -p 2222 ls',
 		'git pull',
 		'git status',
 		'git submodule sync',
