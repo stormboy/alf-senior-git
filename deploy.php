@@ -39,6 +39,8 @@
 		'git submodule sync',
 		'git submodule update',
 		'git submodule status',
+
+		# add rsync here
 	);
 
 	// Run the commands for output
