@@ -26,7 +26,7 @@
 		 ip_in_network($ip, "127.0.0.1",32) 			# localhost
 		);
 	if ($ok == false) {
-		echo "not cool";
+		echo "not cool fella";
 		return;
 	}
 
