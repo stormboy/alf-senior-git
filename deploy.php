@@ -34,13 +34,13 @@
 	$commands = array(
 		'echo $PWD',
 		'whoami',
+		#'ssh -vv smallstu@smallstudio.com.au -p 2222 ls',
 		'git pull',
 		'git status',
 		'git submodule sync',
 		'git submodule update',
 		'git submodule status',
-
-		# add rsync here
+		'export SITE=alfred-senior; ~/deploy.sh',
 	);
 
 	// Run the commands for output
