@@ -7,15 +7,20 @@ class StaffProfilePage extends Page {
 	); 
 
 	static $db = array(
-		'Name' => 'Text',
+		'FirstName' => 'Text',
+		'LastName' => 'Text',
 		'Email' => 'Text',
 		'Phone1' => 'Text',
 		'Phone2' => 'Text',
 		'Biography' => 'Text',
 		'Achievements' => 'Text',
-		'OtherInformation' => 'Text'
+		'OtherInformation' => 'Text',
    	);
-	
+
+	public static $has_one = array(
+		'ProfileImage' => 'Image',
+	);
+
 	static $has_many = array(
 		
 	);
@@ -23,14 +28,16 @@ class StaffProfilePage extends Page {
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Name'));
-		$fields->addFieldToTab('Root.Main', new TextField('Email', 'E-mail Address'));
-		$fields->addFieldToTab('Root.Main', new TextField('Phone1', 'Primary Telephone'));
-		$fields->addFieldToTab('Root.Main', new TextField('Phone2', 'Secondary Telephone'));
+		$fields->addFieldToTab('Root.Main', new TextField('FirstName', 'First Name'), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextField('LastName', 'Last Name'), 'Content');
+		$fields->addFieldToTab('Root.Main', new UploadField('ProfileImage'), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextField('Email', 'E-mail Address'), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextField('Phone1', 'Primary Telephone'), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextField('Phone2', 'Secondary Telephone'), 'Content');
 
-		$fields->addFieldToTab('Root.Main', new TextAreaField('Biography', 'Biography', 4));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('Achievements', 'Accolades and Achievements', 4));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('OtherInformation', 'Other Information', 4));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('Biography', 'Biography', 4), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextAreaField('Achievements', 'Accolades and Achievements', 4), 'Content');
+		$fields->addFieldToTab('Root.Main', new TextAreaField('OtherInformation', 'Other Information', 4), 'Content');
 
 		return $fields;
 	}

@@ -1,6 +1,6 @@
 <?php
 
-class NewsListing extends Page {
+class ResourceListing extends Page {
 	
      static $db = array(
     );
@@ -9,17 +9,16 @@ class NewsListing extends Page {
 		
 	);
 
-   	static $allowed_children = array('NewsPage');
+   	static $allowed_children = array('ResourcePage');
 
 	function getCMSFields() {
       	$fields = parent::getCMSFields();
-		//$fields->removeFieldFromTab("Root.Content.Main","Content");
 		return $fields;
    	}
 
 }
 
-class NewsListing_Controller extends Page_Controller {
+class ResourceListing_Controller extends Page_Controller {
 	
 	function Items() {
 		if (!isset($_GET['start'])) $_GET['start'] = 0;
@@ -28,7 +27,7 @@ class NewsListing_Controller extends Page_Controller {
 	  	$SQL_start = (int)$_GET['start'];
 
 	  	$doSet = DataObject::get(
-			$callerClass = "NewsPage",
+			$callerClass = "ResourcePage",
 			$filter = "`ParentID` = '".$this->ID."'",
 			$sort = "Date DESC",
 			$join = "",

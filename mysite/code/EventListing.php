@@ -1,6 +1,6 @@
 <?php
 
-class NewsListing extends Page {
+class EventListing extends Page {
 	
      static $db = array(
     );
@@ -9,7 +9,7 @@ class NewsListing extends Page {
 		
 	);
 
-   	static $allowed_children = array('NewsPage');
+   	static $allowed_children = array('EventPage');
 
 	function getCMSFields() {
       	$fields = parent::getCMSFields();
@@ -19,7 +19,7 @@ class NewsListing extends Page {
 
 }
 
-class NewsListing_Controller extends Page_Controller {
+class EventListing_Controller extends Page_Controller {
 	
 	function Items() {
 		if (!isset($_GET['start'])) $_GET['start'] = 0;
@@ -28,7 +28,7 @@ class NewsListing_Controller extends Page_Controller {
 	  	$SQL_start = (int)$_GET['start'];
 
 	  	$doSet = DataObject::get(
-			$callerClass = "NewsPage",
+			$callerClass = "EventPage",
 			$filter = "`ParentID` = '".$this->ID."'",
 			$sort = "Date DESC",
 			$join = "",

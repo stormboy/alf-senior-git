@@ -7,7 +7,8 @@ class EventPage extends Page {
 	); 
 
 	static $db = array(
-		'Date' => 'Date'
+		'Date' => 'Date',
+		'Summary' => 'Text'
    	);
 	
 	static $has_many = array(
@@ -20,9 +21,11 @@ class EventPage extends Page {
 
 		$dateField = new DateField('Date');
 		$dateField->setConfig('showcalendar', true);
+		$dateField->setConfig('showdropdown', true);
 		$dateField->setConfig('dateformat', 'dd/MM/YYYY');
 		
 		$fields ->addFieldToTab('Root.Main', $dateField, 'Content');
+		$fields->addFieldToTab('Root.Main', new TextAreaField('Summary', 'Summary', 4), 'Content');
 
 		return $fields;
 	}

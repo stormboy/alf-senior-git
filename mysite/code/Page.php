@@ -1,4 +1,5 @@
 <?php
+
 class Page extends SiteTree {
 
 	public static $db = array(

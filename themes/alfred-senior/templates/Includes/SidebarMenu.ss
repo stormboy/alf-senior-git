@@ -8,7 +8,13 @@
 				</a>
 				<% if $Children %>
 					<ul>
-						<% include SidebarMenu %>
+						<% loop $Children %>
+                            <li>
+								<a href="$Link" class="$LinkingMode" title="Go to the $Title.XML page">
+									$MenuTitle.XML
+								</a>
+                            </li>
+                        <% end_loop %>
 					</ul>
 				<% end_if %>
 			</li>
