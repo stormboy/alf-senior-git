@@ -47,11 +47,28 @@
                 <% end_control %>
 
                 <!-- TODO: add pagination -->
-                <div id="news-pagination">
-                    <a href="#" class="newer-articles">Newer Articles</a>
-                    <span><a href="#">1</a>   <a href="#"></a>   <a href="#">3</a>   <a href="#">4</a>   <a href="#">5</a>   <a href="#">6</a>   <a href="#">7</a>   <a href="#">8</a>   <a href="#">...</a>   <a href="#">18</a></span>
-                    <a href="#" class="older-articles">Older Articles</a>
-                </div>
+                <% if PaginatedItems.MoreThanOnePage %> 
+                    <div id="news-pagination">
+                        <% if PaginatedItems.PrevLink %> 
+                            <a href="$PaginatedItems.PrevLink" class="newer-articles">Newer Articles</a>
+                        <% end_if %>
+
+                        <span>
+                        <% control PaginatedItems.Pages %>
+                            <% if CurrentBool %> 
+                                <strong>$PageNum</strong>
+                            <% else %> 
+                                <a href="$Link" title="Go to page $PageNum">$PageNum</a> 
+                            <% end_if %> 
+                        <% end_control %>
+                        </span>
+
+                        <% if PaginatedItems.NextLink %> 
+                            <a href="$PaginatedItems.NextLink" class="older-articles">Older Articles</a>
+                        <% end_if %> 
+                    </div> 
+                <% end_if %>
+
             </div>
 
             <% include SideBar %>

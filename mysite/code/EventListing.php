@@ -22,6 +22,7 @@ class EventListing extends Page {
 class EventListing_Controller extends Page_Controller {
 	
 	function Items() {
+		$itemsPerPage = 5;
 		if (!isset($_GET['start'])) $_GET['start'] = 0;
 
 	  	if(!is_numeric($_GET['start']) || (int)$_GET['start'] < 1) $_GET['start'] = 0;
@@ -32,10 +33,21 @@ class EventListing_Controller extends Page_Controller {
 			$filter = "`ParentID` = '".$this->ID."'",
 			$sort = "Date DESC",
 			$join = "",
-			$limit = "{$SQL_start},5"
-	  );
+			$limit = "{$SQL_start}, {$itemsPerPage}"
+	  	);
 
-	  return $doSet ? $doSet : false;
+	  	return $doSet ? $doSet : false;
+	}
+
+	public function PaginatedItems() {
+	  	$doSet = DataObject::get(
+			$callerClass = "EventPage",
+			$filter = "`ParentID` = '".$this->ID."'",
+			$sort = "Date DESC"
+	  	);
+	    $list = new PaginatedList($doSet, $this->request);
+	    $list->setPageLength(5);
+	    return $list;
 	}
 
 }
