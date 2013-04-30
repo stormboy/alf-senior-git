@@ -18,6 +18,16 @@ class ResourceListing extends Page {
 }
 
 class ResourceListing_Controller extends Page_Controller {
+	public function PaginatedItems() {
+	  	$doSet = DataObject::get(
+			$callerClass = "ResourcePage",
+			$filter = "`ParentID` = '".$this->ID."'",
+			$sort = "Sort ASC"
+	  	);
+	    $list = new PaginatedList($doSet, $this->request);
+	    $list->setPageLength(10);
+	    return $list;
+	}
 
 }
 

@@ -9,7 +9,7 @@ class StaffListing extends Page {
 		'StaffMembers' => 'StaffMember'
 	);
 
-   	static $allowed_children = array('StaffProfilePage');
+   	//static $allowed_children = array('StaffProfilePage');
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();

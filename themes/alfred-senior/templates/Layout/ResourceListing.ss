@@ -8,8 +8,8 @@
                 </div>
                 <div id="promo-copy">
                     <div id="promo-content">
-                        <h1>Landing Header</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultricies magna quis massa vestibulum tincidunt sit amet consequat lorem. Cras ac leo urna, at dapibus lacus.</p>
+                        <h1>$Title</h1>
+                        <p>$Content</p>
                     </div>
                 </div>
             </div>
@@ -25,10 +25,10 @@
                 <span><strong>YOU ARE HERE: <a href="#">Home</a> > </strong><a href="#">Resources</a></span>
             </div>
             <div id="resource-list">
-				<% control Children %>
+				<% control PaginatedItems %>
 	                <div class="resource-item">
 	                    <div class="resource-item-alpha">
-	                        <img src="assets/hold-resource-item.jpg" alt="$Title" />
+	                        <img src="$Image.URL" alt="$Title" style="width: 270px"/>
 	                    </div>
 	                    <div class="resource-item-beta">
 	                        <h2>$Title</h2>
