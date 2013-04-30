@@ -41,4 +41,8 @@ class Page_Controller extends ContentController {
 		Requirements::themedCSS('form'); 
 	}
 
+	function ContactPage() {
+		return $this->GetPage("contact");
+	}
+
 }

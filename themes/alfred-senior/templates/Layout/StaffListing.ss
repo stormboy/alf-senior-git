@@ -35,7 +35,7 @@
                 <div id="directory-contents">
                     <ul>
                     <% control Staff %>
-                        <li <% if Last %>class="last"<% end_if %>><a href="$Link">$Title</a></li>
+                        <li <% if Last %>class="last"<% end_if %>><a href="$Link">$Honorific $FirstName $LastName</a></li>
                     <% end_control %>
                     </ul>
                 </div>
@@ -45,7 +45,6 @@
                     <% end_control %>
                 </ul>
             </div>
-
 
             <% include SideBar %>
             

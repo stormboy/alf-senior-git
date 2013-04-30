@@ -46,7 +46,7 @@
                     </div>
                 <% end_control %>
 
-                <!-- TODO: add pagination -->
+                <!-- pagination -->
                 <% if PaginatedItems.MoreThanOnePage %> 
                     <div id="news-pagination">
                         <% if PaginatedItems.PrevLink %> 
@@ -54,13 +54,15 @@
                         <% end_if %>
 
                         <span>
-                        <% control PaginatedItems.Pages %>
+                        <% loop PaginatedItems.PaginationSummary %>
                             <% if CurrentBool %> 
-                                <strong>$PageNum</strong>
-                            <% else %> 
+                                $PageNum
+                            <% else_if Link %>
                                 <a href="$Link" title="Go to page $PageNum">$PageNum</a> 
+                            <% else %>
+                                ...
                             <% end_if %> 
-                        <% end_control %>
+                        <% end_loop %>
                         </span>
 
                         <% if PaginatedItems.NextLink %> 
@@ -70,8 +72,6 @@
                 <% end_if %>
 
             </div>
-
-            <% include SideBar %>
             
         </div><!-- END #content -->
         

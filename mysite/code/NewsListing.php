@@ -20,7 +20,7 @@ class NewsListing extends Page {
 }
 
 class NewsListing_Controller extends Page_Controller {
-	
+	/*
 	function Items() {
 		if (!isset($_GET['start'])) $_GET['start'] = 0;
 
@@ -37,6 +37,7 @@ class NewsListing_Controller extends Page_Controller {
 
 	  return $doSet ? $doSet : false;
 	}
+	*/
 	
 	public function PaginatedItems() {
 	  	$doSet = DataObject::get(

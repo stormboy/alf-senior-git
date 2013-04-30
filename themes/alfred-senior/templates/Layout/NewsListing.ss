@@ -26,7 +26,7 @@
             <% end_if %>
 
             <div id="news-feed">
-                <% control Items %>
+                <% control PaginatedItems %>
                     <!-- last post is different -->
                     <div class="news-post <% if Last %> last<% end_if %>">
                         <div class="news-post-alpha">
@@ -52,15 +52,16 @@
                         <% if PaginatedItems.PrevLink %> 
                             <a href="$PaginatedItems.PrevLink" class="newer-articles">Newer Articles</a>
                         <% end_if %>
-
                         <span>
-                        <% control PaginatedItems.Pages %>
+                        <% loop PaginatedItems.PaginationSummary %>
                             <% if CurrentBool %> 
-                                <strong>$PageNum</strong>
-                            <% else %> 
+                                $PageNum
+                            <% else_if Link %>
                                 <a href="$Link" title="Go to page $PageNum">$PageNum</a> 
+                            <% else %>
+                                ...
                             <% end_if %> 
-                        <% end_control %>
+                        <% end_loop %>
                         </span>
 
                         <% if PaginatedItems.NextLink %> 
@@ -70,8 +71,6 @@
                 <% end_if %>
             </div>
 
-            <% include SideBar %>
-            
         </div><!-- END #content -->
         
         <% include Footer%>

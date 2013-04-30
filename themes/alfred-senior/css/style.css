@@ -139,13 +139,13 @@
                             #staff-details p a { color: #77787b; text-decoration: none; }
                             #staff-details p a:hover { color: #720474; text-decoration: none; }
 
-                #news-feed { float: left; width: 690px; }
+                #news-feed { float: left; width: 900px; }
                     .news-post { float: left; width: 100%; border-bottom: 1px solid #77787b; padding: 0 0 40px 0; margin: 0 0 40px 0; }
                     .news-article { float: left; width: 100%; margin: 0 0 40px 0; }
                     #news-feed .last { border: none; padding: 0 0 40px 0; margin: 0 0 0 0;  }
                         .news-post-alpha { float: left; width: 155px; }
                             .news-post-alpha span { font-weight: bold; color: #77787b; font-size: 15px; }
-                        .news-post-beta { float: right; width: 520px; margin: 0 10px 0 0; }
+                        .news-post-beta { float: right; width: 730px; margin: 0 10px 0 0; }
                             .news-post-beta h2 { color: #720474; font-size: 24px; font-family: 'News Cycle', sans-serif; font-weight: normal; margin: 0 0 25px 0; }
                             .news-post-beta a.read-more { color: #652492; padding: 0 0 0 15px; background: transparent url('../images/back-arrow-darkgrey-white.gif') left center no-repeat; text-decoration: none; }
                             .news-post-beta a.read-more:hover { color: #555; }
