@@ -25,7 +25,11 @@
             </div>
             -->
             <div id="page" class="page-wide">
-                
+            
+            <% if Image %>
+                <img src="$Image.URL" style="float: left; width: 270px; margin: 10px;"/>
+            <% end_if %>
+
             $Content
             $Form
 
