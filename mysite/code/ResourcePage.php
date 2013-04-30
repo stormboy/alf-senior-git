@@ -13,14 +13,14 @@ class ResourcePage extends Page {
 		'Summary' => 'Text'
    	);
 	
-	static $has_many = array(
-		
+	static $has_one = array(
+		'Image' => 'Image',
 	);
    	
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
+		$fields->addFieldToTab('Root.Main', new UploadField('Image'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Summary', 'Summary', 4), 'Content');
-
 		return $fields;
 	}
 
