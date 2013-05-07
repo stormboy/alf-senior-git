@@ -55,6 +55,10 @@ class StaffListing extends Page {
     }   
 }
 
+
+/**
+ * controller for StaffListing
+ */
 class StaffListing_Controller extends Page_Controller {
 	//Allow our 'show' function as a URL action
     static $allowed_actions = array(
@@ -63,13 +67,11 @@ class StaffListing_Controller extends Page_Controller {
 
 	function Staff() {
 		if (!isset($_GET['letter'])) $_GET['letter'] = 'a';
-
 	  	$Letter = $_GET['letter'];
 
 	  	$doSet = DataObject::get(
 			$callerClass = "StaffMember",
 			$filter = "`ParentID` = '".$this->ID."' AND `LastName` like '".$Letter."%'",
-			//$filter = "`ParentID` = '".$this->ID."'",
 			$sort = "LastName ASC"
 		);
 
@@ -78,13 +80,11 @@ class StaffListing_Controller extends Page_Controller {
 
 	function StaffPages() {
 		if (!isset($_GET['letter'])) $_GET['letter'] = 'a';
-
 	  	$Letter = $_GET['letter'];
 
 	  	$doSet = DataObject::get(
 			$callerClass = "StaffProfilePage",
 			$filter = "`ParentID` = '".$this->ID."' AND `LastName` like '".$Letter."%'",
-			//$filter = "`ParentID` = '".$this->ID."'",
 			$sort = "LastName ASC"
 		);
 
@@ -116,8 +116,7 @@ class StaffListing_Controller extends Page_Controller {
     public function getStaffMember() {
         $Params = $this->getURLParams();
          
-        if(is_numeric($Params['ID']) && $StaffMember = DataObject::get_by_id('StaffMember', (int)$Params['ID']))
-        {       
+        if(is_numeric($Params['ID']) && $StaffMember = DataObject::get_by_id('StaffMember', (int)$Params['ID'])) {
             return $StaffMember;
         }
     }

@@ -39,6 +39,18 @@ class Page_Controller extends ContentController {
 		Requirements::themedCSS('layout'); 
 		Requirements::themedCSS('typography'); 
 		Requirements::themedCSS('form'); 
+
+		// if ($this->FinalParent()->ClassName == 'MemberPage') {
+		// 	if (Member::currentUser()) {
+		// 		$Member = Member::currentUser();
+		// 		$memberCheck = $Member->checkMembership($Member);
+
+		// 		if ($memberCheck == false) {
+		// 			$AccountPage = DataObject::get_one('AccountPage');
+		// 			Director::redirect($AccountPage->Link().'renewal');
+		// 		}
+		// 	}
+		// }
 	}
 
 	function ContactPage() {

@@ -24,7 +24,7 @@
                 
                     <div id="links">
                         <a href="#">Contact</a>
-                        <a href="#">Login</a>
+                        <a href="{$BaseHref}Security/login">Login</a>
                     </div>
                     <div id="search-wrap">
                         <form action="#">
