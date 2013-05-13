@@ -23,8 +23,12 @@
                 <div id="top">
                 
                     <div id="links">
-                        <a href="#">Contact</a>
-                        <a href="{$BaseHref}Security/login">Login</a>
+                        <a href="{$BaseHref}contact">Contact</a>
+                        <% if CurrentMember %> 
+                            <a href="{$BaseHref}Security/logout" title="Logout {$CurrentMember.FirstName}">Logout</a>
+                        <% else %> 
+                            <a href="{$BaseHref}Security/login?BackURL={$BaseHref}" title="Login">Login</a>
+                        <% end_if %>
                     </div>
                     <div id="search-wrap">
                         <form action="#">

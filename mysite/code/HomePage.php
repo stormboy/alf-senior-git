@@ -45,7 +45,7 @@ class HomePage_Controller extends Page_Controller {
     }
 
     function RegisterPage() {
-    	return $this->GetPage("register");
+    	return $this->GetPage("account");
     }
 
     function StaffPage() {
