@@ -2,7 +2,7 @@
 
 class StaffListing extends Page {
 	
-     static $db = array(
+    static $db = array(
     );
 	
 	static $has_many = array(
