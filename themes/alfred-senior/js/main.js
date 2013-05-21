@@ -2,7 +2,7 @@
     $(window).ready(function() {
 
 		swapValue = [];
-		$("#search-wrap input.text, #form input.text").each(function(i){
+		$("#search-wrap input.text, form input.text").each(function(i){
 		   swapValue[i] = $(this).val();
 		   $(this).focus(function(){
 			  if ($(this).val() == swapValue[i]) {

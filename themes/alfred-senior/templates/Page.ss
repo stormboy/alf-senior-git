@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="$ThemeDir/css/main.css">
         <link rel="stylesheet" href="$ThemeDir/css/style.css">
         <link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
-        <script src="$ThemeDir/js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="$ThemeDir/js/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
     	<div class="wrap">
@@ -55,9 +55,10 @@
 
         $Layout
 
-        <script src="$ThemeDir/js/vendor/jquery-1.9.0.min.js"></script>
+        <script src="$ThemeDir/js/jquery-1.9.0.min.js"></script>
         <script src="$ThemeDir/js/plugins.js"></script>
         <script src="$ThemeDir/js/main.js"></script>
+        <script></script>
     </body>
 </html>
 

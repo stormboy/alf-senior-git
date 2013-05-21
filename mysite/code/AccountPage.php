@@ -86,22 +86,20 @@
 			$MemberFields[] = new FieldGroup(
 	        	new HeaderField('Register'),
 	        	new FieldGroup(
-	        		new DropdownField('Prefix', 'Title', MemberRole::$prefixTypes),
-	        		TextField::create("FirstName")->setTitle('First name'),
-	        		//new TextField("FirstName","First Name"),
-	        		new TextField("Surname", "Surname"),
-	        		new EmailField("Email", "Email"),
-	        		new TextField("Telephone", "Telephone (eg: 61 3 1234 5678)"),
+	        		new DropdownField("Prefix", "Title", MemberRole::$prefixTypes),
+	        		TextField::create("FirstName")->setTitle("")->setAttribute("placeholder", 'First name...'),
+	        		TextField::create("Surname")->setTitle("")->setAttribute("placeholder", "Surname..."),
+	        		EmailField::create("Email")->setTitle("")->setAttribute("placeholder", "Email...."),
+	        		TextField::create("Telephone")->setTitle("")->setAttribute("placeholder", "Telephone (eg: 61 3 1234 5678)..."),
 	        		new DropdownField("Category", "Category", MemberRole::$categories),
 	        		new DropdownField("Discipline", "Specialty", MemberRole::$disciplineTypes),
 
-	        		new TextField("Address", "Address"),
-	        		new TextField("City", "City"),
-	        		new TextField("PostalCode", "Postal Code"),
-	        		new TextField("State", "State"),
-	        		new CountryDropDownField('Country', 'Country'),
-
-	        		new ConfirmedPasswordField("Password", "Password")
+	        		TextField::create("Address")->setTitle("")->setAttribute("placeholder", "Address..."),
+	        		TextField::create("City")->setTitle("")->setAttribute("placeholder", "City..."),
+	        		TextField::create("PostalCode")->setTitle("")->setAttribute("placeholder", "Postal Code..."),
+	        		TextField::create("State")->setTitle("")->setAttribute("placeholder", "State...")->setAttribute("title", "State"),
+	        		CountryDropDownField::create('Country')->setTitle('Country'),
+	        		ConfirmedPasswordField::create("Password")->setTitle("")
 	        	)
 	        );
 

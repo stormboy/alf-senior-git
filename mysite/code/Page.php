@@ -40,6 +40,9 @@ class Page_Controller extends ContentController {
 		Requirements::themedCSS('typography'); 
 		Requirements::themedCSS('form'); 
 
+		// stop Silverstripe from including its jQuery file
+		Requirements::block(SAPPHIRE_DIR .'/thirdparty/jquery/jquery.js'); 
+
 		// if ($this->FinalParent()->ClassName == 'MemberPage') {
 		// 	if (Member::currentUser()) {
 		// 		$Member = Member::currentUser();
