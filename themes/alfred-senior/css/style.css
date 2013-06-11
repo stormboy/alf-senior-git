@@ -272,3 +272,7 @@
             .selectBox-inline.selectBox-disabled { color: #888 !important; }
             .selectBox-inline.selectBox-disabled .selectBox-options A { background-color: transparent !important; }
                
+.fieldholder-small-label {
+    display: block;
+    clear: left;
+}

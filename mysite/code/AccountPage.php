@@ -86,18 +86,19 @@
 			$MemberFields[] = new FieldGroup(
 	        	new HeaderField('Register'),
 	        	new FieldGroup(
-	        		new DropdownField("Prefix", "Title", MemberRole::$prefixTypes),
-	        		TextField::create("FirstName")->setTitle("")->setAttribute("placeholder", 'First name...'),
-	        		TextField::create("Surname")->setTitle("")->setAttribute("placeholder", "Surname..."),
-	        		EmailField::create("Email")->setTitle("")->setAttribute("placeholder", "Email...."),
-	        		TextField::create("Telephone")->setTitle("")->setAttribute("placeholder", "Telephone (eg: 61 3 1234 5678)..."),
-	        		new DropdownField("Category", "Category", MemberRole::$categories),
-	        		new DropdownField("Discipline", "Specialty", MemberRole::$disciplineTypes),
+	        		//new DropdownField("Prefix", "Title", MemberRole::$prefixTypes),
+	        		DropdownField::create("Prefix")->setTitle("Title")->setSource(MemberRole::$prefixTypes),
+	        		TextField::create("FirstName")->setTitle("First name")->setAttribute("placeholder", 'First name...'),
+	        		TextField::create("Surname")->setTitle("Surname")->setAttribute("placeholder", "Surname..."),
+	        		EmailField::create("Email")->setTitle("Email")->setAttribute("placeholder", "Email...."),
+	        		TextField::create("Telephone")->setTitle("Telephone")->setAttribute("placeholder", "Telephone (eg: 61 3 1234 5678)..."),
+	        		DropdownField::create("Category")->setTitle("Category")->setSource(MemberRole::$categories),
+	        		DropdownField::create("Discipline")->setTitle("Specialty")->setSource(MemberRole::$disciplineTypes),
 
-	        		TextField::create("Address")->setTitle("")->setAttribute("placeholder", "Address..."),
-	        		TextField::create("City")->setTitle("")->setAttribute("placeholder", "City..."),
-	        		TextField::create("PostalCode")->setTitle("")->setAttribute("placeholder", "Postal Code..."),
-	        		TextField::create("State")->setTitle("")->setAttribute("placeholder", "State...")->setAttribute("title", "State"),
+	        		TextField::create("Address")->setTitle("Address")->setAttribute("placeholder", "Address..."),
+	        		TextField::create("City")->setTitle("City")->setAttribute("placeholder", "City..."),
+	        		TextField::create("PostalCode")->setTitle("Postal code")->setAttribute("placeholder", "Postal Code..."),
+	        		TextField::create("State")->setTitle("State")->setAttribute("placeholder", "State...")->setAttribute("title", "State"),
 	        		CountryDropDownField::create('Country')->setTitle('Country'),
 	        		ConfirmedPasswordField::create("Password")->setTitle("")
 	        	)
@@ -250,7 +251,7 @@
 	        		new TextField("City", "City", $Member->City),
 	        		new TextField("PostalCode", "Postal Code", $Member->PostalCode),
 	        		new TextField("State", "State", $Member->State),
-	        		new CountryDropDownField('Country', "Country", $Member->Country),
+	        		new CountryDropDownField("Country", "Country", $Member->Country),
 	        		new ConfirmedPasswordField("Password", "Password", $Member->Password)
 	        	)
 	        );
