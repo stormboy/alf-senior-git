@@ -170,7 +170,7 @@
 						$email = new Email();
 				        $email->ss_template = 'Member_Email';
 						$email->populateTemplate($privateEmailData);
-				        $email->subject = 'Member Registered';
+				        $email->subject = 'Alfred Senior Member Registered';
 				        $email->from = $member->Email;
 				       	$email->to = Email::getAdminEmail();
 				        $email->send();	
@@ -291,7 +291,7 @@
 				$email = new Email();
 		        $email->ss_template = 'Member_Email';
 				$email->populateTemplate($data);
-		        $email->subject = 'Member Updated';
+		        $email->subject = 'Aflred Senior Member Updated';
 		        $email->from = $data['Email'];
 		       	$email->to = Email::getAdminEmail();
 		        $email->send();	
