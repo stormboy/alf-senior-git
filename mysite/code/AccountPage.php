@@ -144,6 +144,8 @@
 						$MemberPage = DataObject::get_one('HomePage');
 
 						// send email to new member
+						SS_Log::log("sending registration email to user", SS_Log::WARN);
+
 						$memberEmailData = array(
 							"Member" => $member,
 							"MemberURL" => Director::absoluteBaseURL($MemberPage->Link())

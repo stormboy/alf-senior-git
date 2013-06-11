@@ -140,7 +140,9 @@
 
     function onBeforeWrite() {
       $changedFields = $this->owner->getChangedFields();
-      $ActiveMembershipBefore = $changedFields['ActiveMembership']['before'];
+      if ($changedFields && isset($changedFields['ActiveMembership']) ) {
+        $ActiveMembershipBefore = $changedFields['ActiveMembership']['before'];
+      }
 
       if ($this->owner->ActiveMembership && ($this->owner->ActiveMembership != $ActiveMembershipBefore) )  {
         //error_log("sending activation email");
