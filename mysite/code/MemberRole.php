@@ -143,7 +143,8 @@
       $ActiveMembershipBefore = $changedFields['ActiveMembership']['before'];
 
       if ($this->owner->ActiveMembership && ($this->owner->ActiveMembership != $ActiveMembershipBefore) )  {
-        error_log("sending activation email");
+        //error_log("sending activation email");
+        SS_Log::log("sending activation email", SS_Log::WARN);
         try {
           $MemberPage = DataObject::get_one('HomePage');  // TODO member page instead of home
           $memberEmailData = array(
@@ -151,8 +152,8 @@
               "MemberURL" => Director::absoluteBaseURL($MemberPage->Link())
             );
 
-          error_log("sending email to " . $this->owner->Email);
-          //SSViewer::set_theme('alfred-senior');
+          //error_log("sending email to " . $this->owner->Email);
+          SSViewer::set_theme('alfred-senior');
           $email = new Email();
           $email->setTemplate('Account_activated');
           $email->populateTemplate($memberEmailData);
@@ -163,6 +164,7 @@
         }
         catch (Exception $e) {
           error_log('Caught exception while sending email: ',  $e->getMessage(), "\n");
+          SS_Log::log("Caught exception while sending email: " . $e->getMessage(), SS_Log::WARN);
         }
       }
 

@@ -238,7 +238,7 @@
 
 			$MemberFields = array();
 			$MemberFields[] = new FieldGroup(
-	        	new HeaderField('Account Details'),
+	        	new HeaderField('Update your account details'),
 	        	new FieldGroup(
 	        		new DropdownField('Prefix', 'Title', MemberRole::$prefixTypes, $Member->Prefix),
 	        		new TextField("FirstName","First Name", $Member->FirstName),
