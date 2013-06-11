@@ -234,7 +234,9 @@
 			$Member = Member::currentUser();
 			if ($Member == false) {
 				$this->redirect('account/register');
+				return;
 			}
+			error_log("got member: " . $Member);
 
 			$MemberFields = array();
 			$MemberFields[] = new FieldGroup(
