@@ -84,22 +84,22 @@
 		function RegisterForm() {
 			$MemberFields = array();
 			$MemberFields[] = new FieldGroup(
-	        	new HeaderField('Register'),
+	        	new HeaderField('Your account will be activated once payment is verified'),
 	        	new FieldGroup(
 	        		//new DropdownField("Prefix", "Title", MemberRole::$prefixTypes),
 	        		DropdownField::create("Prefix")->setTitle("Title")->setSource(MemberRole::$prefixTypes),
-	        		TextField::create("FirstName")->setTitle("First name")->setAttribute("placeholder", 'First name...'),
-	        		TextField::create("Surname")->setTitle("Surname")->setAttribute("placeholder", "Surname..."),
-	        		EmailField::create("Email")->setTitle("Email")->setAttribute("placeholder", "Email...."),
-	        		TextField::create("Telephone")->setTitle("Telephone")->setAttribute("placeholder", "Telephone (eg: 61 3 1234 5678)..."),
+	        		TextField::create("FirstName")->setTitle("First name"),
+	        		TextField::create("Surname")->setTitle("Surname"),
+	        		EmailField::create("Email")->setTitle("Email"),
+	        		TextField::create("Telephone")->setTitle("Telephone"),
 	        		DropdownField::create("Category")->setTitle("Category")->setSource(MemberRole::$categories),
 	        		DropdownField::create("Discipline")->setTitle("Specialty")->setSource(MemberRole::$disciplineTypes),
 
-	        		TextField::create("Address")->setTitle("Address")->setAttribute("placeholder", "Address..."),
-	        		TextField::create("City")->setTitle("City")->setAttribute("placeholder", "City..."),
-	        		TextField::create("PostalCode")->setTitle("Postal code")->setAttribute("placeholder", "Postal Code..."),
-	        		TextField::create("State")->setTitle("State")->setAttribute("placeholder", "State...")->setAttribute("title", "State"),
-	        		CountryDropDownField::create('Country')->setTitle('Country'),
+	        		TextField::create("Address")->setTitle("Address"),
+	        		TextField::create("City")->setTitle("City"),
+	        		TextField::create("PostalCode")->setTitle("Postal code"),
+	        		TextField::create("State")->setTitle("State")->setAttribute("title", "State"),
+	        		CountryDropDownField::create("Country")->setTitle("Country"),
 	        		ConfirmedPasswordField::create("Password")->setTitle("")
 	        	)
 	        );
@@ -151,11 +151,11 @@
 						$email = new Email();
 				        $email->ss_template = 'Account_email';
 						$email->populateTemplate($memberEmailData);
-				        $email->subject = 'AuSPEN Account Payment Confirmed';
+				        $email->subject = 'Alfred Senior account registration submitted';
 				        $email->from = ($this->ContactEmail != NULL) ? $this->ContactEmail : Email::getAdminEmail();
 				       	$email->to = $member->Email;
 				        $email->send();	
-						
+
 						// member not active so cannot login
 						//$member->logIn();
 
@@ -283,6 +283,7 @@
 
 				$data['mode'] = 'edited';
 
+				// send email to admin
 				$email = new Email();
 		        $email->ss_template = 'Member_Email';
 				$email->populateTemplate($data);

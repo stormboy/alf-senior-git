@@ -103,7 +103,6 @@
         "Retired"
       );
 
-
 /*
     public function extraStatics( $class = null, $extension = null ) {
       return array(
@@ -139,12 +138,39 @@
       $fields->replaceField('Discipline', new DropdownField('Discipline', 'Specialty', MemberRole::$disciplineTypes));
     }
 
-/*
     function onBeforeWrite() {
-      parent::onBeforeWrite();
+      $changedFields = $this->owner->getChangedFields();
+      $ActiveMembershipBefore = $changedFields['ActiveMembership']['before'];
+
+      if ($this->owner->ActiveMembership && ($this->owner->ActiveMembership != $ActiveMembershipBefore) )  {
+        error_log("sending activation email");
+        try {
+          $MemberPage = DataObject::get_one('HomePage');  // TODO member page instead of home
+          $memberEmailData = array(
+              "Member" => $this->owner,
+              "MemberURL" => Director::absoluteBaseURL($MemberPage->Link())
+            );
+
+          error_log("sending email to " . $this->owner->Email);
+          //SSViewer::set_theme('alfred-senior');
+          $email = new Email();
+          $email->setTemplate('Account_activated');
+          $email->populateTemplate($memberEmailData);
+          $email->subject = 'Alfred Senior Member Account';
+          $email->from = Email::getAdminEmail();
+          $email->to = $this->owner->Email;
+          $email->send();
+        }
+        catch (Exception $e) {
+          error_log('Caught exception while sending email: ',  $e->getMessage(), "\n");
+        }
+      }
+
+      return parent::onBeforeWrite();
+    }
 
       //SSViewer::set_theme('alfred-senior');
-
+      /*
       if (isset($_POST['NotifyMember'])) {
         $data = $_POST;
         $data['MemberPassword'] = $_POST['Password']['_Password'];
@@ -157,8 +183,7 @@
         $email->to = $_POST['Email'];
         $email->send(); 
       }
-    }
-*/
+      */
 
     function checkMembership($Member) {
       $Group = DataObject::get_one('Group', "Code = 'members'");
