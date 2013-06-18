@@ -3,7 +3,6 @@
 	 * Site Deployment Script
 	 *
 	 * Will pull latest version of the site from github and rsync to testing server
-	 *
 	 */
 
 	function ip_in_network($ip, $net_addr, $net_mask){ 
@@ -24,6 +23,7 @@
 		 ip_in_network($ip, "192.168.236.0",24)  ||		# local network
 		 ip_in_network($ip, "127.0.0.1",32) 			# localhost
 		);
+	$ok = true;
 	if ($ok == false) {
 		echo "not cool fella";
 		return;
@@ -47,6 +47,7 @@
 
 	// Run the commands for output
 	$output = '';
+	$output = date(DATE_ISO8601) . "\n";
 	foreach($commands AS $command){
 		// Run it
 		$tmp = shell_exec($command);
@@ -54,6 +55,9 @@
 		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
 		$output .= htmlentities(trim($tmp)) . "\n";
 	}
+
+	// write output to log file
+	file_put_contents("/tmp/deploy_senior.txt", $output, FILE_APPEND);
 
 	// Make it pretty for manual user access (and why not?)
 ?>
